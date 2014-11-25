@@ -111,7 +111,7 @@ NSString *const kXMPPmyPassword = @"kXMPPmyPassword";
     
     
     
-    [_xmppStream setHostName:@"127.0.0.1"];
+    [_xmppStream setHostName:@"192.168.1.27"];
     [_xmppStream setHostPort:5222];
     
     customCertEvaluation = YES;
@@ -180,6 +180,11 @@ NSString *const kXMPPmyPassword = @"kXMPPmyPassword";
     NSLog(@"账户注册失败");
     NSLog(@"%@",error);
 }
+///在线冲突
+- (NSString *)xmppStream:(XMPPStream *)sender alternativeResourceForConflictingResource:(NSString *)conflictingResource
+{
+    return conflictingResource;
+}
 ///上线成功
 - (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq
 {
@@ -190,9 +195,7 @@ NSString *const kXMPPmyPassword = @"kXMPPmyPassword";
 ///获取好友状态
 - (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence
 {
-    NSString *presenceType = [presence type];
-    NSString *userId = [[sender myJID] user];
-    NSString *presenceFromUser = [[presence from] user];
+    NSLog(@"%@",presence);
     
 
 }
@@ -235,7 +238,7 @@ NSString *const kXMPPmyPassword = @"kXMPPmyPassword";
         if(_isLogined){
             NSError *error = nil;
             password=pwd;
-            [[self xmppStream] setMyJID:[XMPPJID jidWithString:user]];
+            [[self xmppStream] setMyJID:[XMPPJID jidWithString:user resource:@"ios"]];
             if (![[self xmppStream] authenticateWithPassword:password error:&error])
             {
                 NSLog(@"Error authenticating: %@", error);
@@ -250,9 +253,9 @@ NSString *const kXMPPmyPassword = @"kXMPPmyPassword";
     }
     if (myJID != nil) {
     
-        [_xmppStream setMyJID:[XMPPJID jidWithString:myJID]];
+        [_xmppStream setMyJID:[XMPPJID jidWithString:myJID resource:@"ios"]];
     }else{
-        [_xmppStream setMyJID:[XMPPJID jidWithString:@"a"]];
+        [_xmppStream setMyJID:[XMPPJID jidWithString:@"a" resource:@"ios"]];
     }
     NSError *error = nil;
     [_xmppStream connectWithTimeout:10 error:&error];
@@ -271,7 +274,7 @@ NSString *const kXMPPmyPassword = @"kXMPPmyPassword";
     {
         [self connect:user withpassword:nil];
     }
-    [_xmppStream setMyJID:[XMPPJID jidWithString:user]];
+    [_xmppStream setMyJID:[XMPPJID jidWithString:user resource:@"ios"]];
     NSError *err;
     if([_xmppStream registerWithPassword:pwd error:&err])
     {return YES;}
