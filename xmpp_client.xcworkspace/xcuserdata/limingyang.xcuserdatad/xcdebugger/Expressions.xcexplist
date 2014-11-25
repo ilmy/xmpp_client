@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[AppDelegate xmppStream:didNotRegister:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "NSLog(@&quot;%@&quot;,error)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate application:didFinishLaunchingWithOptions:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "main.storyboard">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__57-[AppDelegate application:didFinishLaunchingWithOptions:]_block_invoke:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.window.rootViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MBProgressHUD layoutSubviews]:MBProgressHUD.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "label.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MBProgressHUD setupLabels]:MBProgressHUD.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.bounds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate connect:withpassword:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "pwd">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
